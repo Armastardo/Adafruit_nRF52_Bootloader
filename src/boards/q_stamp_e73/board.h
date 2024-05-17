@@ -1,7 +1,7 @@
 /*
  * The MIT License (MIT)
  *
- * Copyright (c) 2018 Ha Thach for Adafruit Industries, 2022 Invector Labs
+ * Copyright (c) 2022 Brandon Beltran
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,52 +22,44 @@
  * THE SOFTWARE.
  */
 
-#ifndef _CHALLENGER_840_BLE_H
-#define _CHALLENGER_840_BLE_H
+#ifndef Q_STAMP_H
+#define Q_STAMP_H
 
 #define _PINNUM(port, pin)    ((port)*32 + (pin))
+
+#define UICR_REGOUT0_VALUE UICR_REGOUT0_VOUT_3V0
 
 /*------------------------------------------------------------------*/
 /* LED
  *------------------------------------------------------------------*/
-#define LEDS_NUMBER           1
-#define LED_PRIMARY_PIN       _PINNUM(0, 12)
-#define LED_STATE_ON          1
-
-#define LED_NEOPIXEL           _PINNUM(1, 8)
-#define NEOPIXELS_NUMBER      1
-#define BOARD_RGB_BRIGHTNESS  0x040404
+#define LEDS_NUMBER         1
+#define LED_PRIMARY_PIN     _PINNUM(1, 06)   // not yet in board, nor connected
+#define LED_STATE_ON        0
 
 /*------------------------------------------------------------------*/
 /* BUTTON
  *------------------------------------------------------------------*/
-#define BUTTONS_NUMBER        2
-#define BUTTON_1              _PINNUM(0, 19)
-#define BUTTON_2              _PINNUM(0, 8)  // Pulls flash cs high
-#define BUTTON_PULL           NRF_GPIO_PIN_PULLUP
-
-/*------------------------------------------------------------------*/
-/* On board LDO control
- *------------------------------------------------------------------*/
-#define LDO_CONTROL_PIN       _PINNUM(1, 9)  // Enables external pwr
+#define BUTTONS_NUMBER    2
+#define BUTTON_1          _PINNUM(0, 18)  // RESET
+#define BUTTON_2          _PINNUM(1, 04)  // unconnected
+#define BUTTON_PULL       NRF_GPIO_PIN_PULLUP
 
 //--------------------------------------------------------------------+
 // BLE OTA
 //--------------------------------------------------------------------+
-#define BLEDIS_MANUFACTURER   "Invector Labs"
-#define BLEDIS_MODEL          "Challenger 840 BLE"
+#define BLEDIS_MANUFACTURER  "Quark"
+#define BLEDIS_MODEL         "Q-Stamp (Alpha)"
 
 //--------------------------------------------------------------------+
 // USB
 //--------------------------------------------------------------------+
-#define USB_DESC_VID           0x1209
-#define USB_DESC_UF2_PID       0x7380
-#define USB_DESC_CDC_ONLY_PID  0x7381
+#define USB_DESC_VID           0x239A
+#define USB_DESC_UF2_PID       0x5A5B
+#define USB_DESC_CDC_ONLY_PID  0x5A5B
 
-//------------- UF2 -------------//
-#define UF2_PRODUCT_NAME      "ILabs Challenger 840"
-#define UF2_VOLUME_LABEL      "CH840BOOT"
-#define UF2_BOARD_ID          "nRF52840-Challenger-840"
-#define UF2_INDEX_URL         "https://www.ilabs.se"
+#define UF2_PRODUCT_NAME  "q_stamp_alpha"
+#define UF2_VOLUME_LABEL  "Q_STAMP"
+#define UF2_BOARD_ID      "q_stamp_alpha"
+#define UF2_INDEX_URL     "https://social.mpwr.xyz"
 
-#endif // _CHALLENGER_840_BLE_H
+#endif // Q_STAMP_H

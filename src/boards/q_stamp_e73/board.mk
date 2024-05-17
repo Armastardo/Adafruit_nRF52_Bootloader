@@ -1,2 +1,2 @@
+# nrf52 is nrf52832
 MCU_SUB_VARIANT = nrf52840
-SD_VERSION = 7.3.0
